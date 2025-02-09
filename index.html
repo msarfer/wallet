@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/style.css" />
+    <title>Tarjetas de embarque</title>
+  </head>
+  <body>
+    <h1>Tarjetas de embarque</h1>
+    <form>
+      <div class="row">
+        <div class="column">
+          <label for="clase">Archivo Clase (JSON):</label>
+          <input type="file" id="clase" accept="application/json" />
+
+          <label for="objeto">Archivo Objeto (JSON):</label>
+          <input type="file" id="objeto" accept="application/json" />
+
+          <label for="xslt">Archivo XSLT:</label>
+          <input type="file" id="xslt" />
+        </div>
+        <div class="column">
+          <button type="button" id="convert">Convertir</button>
+          <button type="button" id="xml" disabled>Descargar XML</button>
+          <button type="button" id="xsltBtn" disabled>
+            Descargar XML Transformado
+          </button>
+        </div>
+      </div>
+
+      <code>
+        <pre id="output" class="prettyprint"></pre>
+      </code>
+    </form>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
