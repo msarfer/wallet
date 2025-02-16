@@ -6,15 +6,23 @@ const state = {
   xml: null,
   result: null
 } 
-
-const out = document.getElementById('output')
-out.style.opacity = 0
-
+const outXML = document.getElementById('outXML')
+const outXSLT = document.getElementById('outXSLT')
+const codeXML = document.getElementById('codeXML')
+const codeXSLT = document.getElementById('codeXSLT')
 const inputs = document.querySelectorAll('input')
+const xmlButton = document.getElementById('xml')
+const xsltButton = document.getElementById('xsltBtn')
+const convertButton = document.getElementById('convert')
+
 inputs.forEach(input => input.addEventListener('change', () => {
   state.xml = null
   state.result = null
-  out.style.opacity = 0
+  codeXML.style.opacity = 0
+  codeXSLT.style.opacity = 0
+  outXML.style.display = 'none'
+  const { present } = allFiles()
+  convertButton.disabled = !present
   actionButtons(true)
 }));
 
@@ -52,8 +60,6 @@ function xmlToString (xml) {
   return serializer.serializeToString(xml)
 }
 
-const xmlButton = document.getElementById('xml')
-const xsltButton = document.getElementById('xsltBtn')
 
 document.getElementById('convert').addEventListener('click', convert);
 
@@ -76,9 +82,11 @@ async function convert () {
       state.xml = createXMLDocument(data, { qualifiedName: 'boardingpass'});
       state.result = transform(state.xml, xslt);
 
-      const out = document.getElementById('output')
-      out.textContent = xmlToString(state.result)
-      out.style.opacity = 1
+      outXML.textContent = xmlToString(state.xml)
+      outXSLT.textContent = xmlToString(state.result)
+      outXML.style.display = 'block'
+      codeXML.style.opacity = 1
+      codeXSLT.style.opacity = 1
 
       actionButtons(false)
 

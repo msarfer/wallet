@@ -4,36 +4,67 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./src/style.css" />
+    <link rel="stylesheet" href="./node_modules/@picocss/pico/css/pico.jade.min.css" />
     <title>Tarjetas de embarque</title>
+    <style>
+      h2 {
+        text-align: center;
+        margin-bottom: 2rem;
+        margin-top: 1rem;
+      }
+      .column {
+        display: flex;
+        flex-direction: column;
+      }
+    </style>
   </head>
-  <body>
-    <h1>Tarjetas de embarque</h1>
+  <body class="container">
+    <h2>Tarjetas de embarque</h2>
     <form>
-      <div class="row">
-        <div class="column">
-          <label for="clase">Archivo Clase (JSON):</label>
-          <input type="file" id="clase" accept="application/json" />
+        <header role="group">
+          <div class="row">
+            <label for="clase">Archivo Clase (JSON):</label>
+            <input type="file" id="clase" accept="application/json" />
+          </div>
 
-          <label for="objeto">Archivo Objeto (JSON):</label>
-          <input type="file" id="objeto" accept="application/json" />
+          <div class="column">
+            <label for="objeto">Archivo Objeto (JSON):</label>
+            <input type="file" id="objeto" accept="application/json" />
+          </div>
 
-          <label for="xslt">Archivo XSLT:</label>
-          <input type="file" id="xslt" />
-        </div>
-        <div class="column">
-          <button type="button" id="convert">Convertir</button>
+          <div class="column">
+            <label for="xslt">Archivo XSLT:</label>
+            <input type="file" id="xslt"/>
+          </div>
+        </header>
+        <body>
+          <button type="button" id="convert" disabled>Convertir</button>
           <button type="button" id="xml" disabled>Descargar XML</button>
           <button type="button" id="xsltBtn" disabled>
             Descargar XML Transformado
           </button>
-        </div>
-      </div>
-
-      <code>
-        <pre id="output" class="prettyprint"></pre>
-      </code>
+        </body>
     </form>
+    <article style="height: 50%;">
+      <header>
+        <h6>XML</h6>
+      </header>
+      <body>
+        <code id="codeXML" style="width: 100%; opacity: 0">
+          <pre id="outXML" style="min-height: 200px; display: none;"></pre>
+        </code>
+      </body>
+    </article>
+    <article style="height: 50%;">
+      <header>
+        <h6>XSLT</h6>
+      </header>
+      <body>
+        <code id="codeXSLT" style="width: 100%; opacity: 0">
+          <pre id="outXSLT"></pre>
+        </code>
+      </body>
+    </article>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>

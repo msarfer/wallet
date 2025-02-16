@@ -7,6 +7,10 @@ settings:
 importers:
 
   .:
+    dependencies:
+      '@picocss/pico':
+        specifier: ^2.0.6
+        version: 2.0.6
     devDependencies:
       '@eslint/js':
         specifier: ^9.20.0
@@ -230,6 +234,10 @@ packages:
   '@humanwhocodes/retry@0.4.1':
     resolution: {integrity: sha512-c7hNEllBlenFTHBky65mhq8WD2kbN9Q6gk0bTk8lSBvc554jpXSkST1iePudpt7+A/AQvuHs9EMqjHDXMY1lrA==}
     engines: {node: '>=18.18'}
+
+  '@picocss/pico@2.0.6':
+    resolution: {integrity: sha512-/d8qsykowelD6g8k8JYgmCagOIulCPHMEc2NC4u7OjmpQLmtSetLhEbt0j1n3fPNJVcrT84dRp0RfJBn3wJROA==}
+    engines: {node: '>=18.19.0'}
 
   '@rollup/rollup-android-arm-eabi@4.34.6':
     resolution: {integrity: sha512-+GcCXtOQoWuC7hhX1P00LqjjIiS/iOouHXhMdiDSnq/1DGTox4SpUvO52Xm+div6+106r+TcvOeo/cxvyEyTgg==}
@@ -815,6 +823,8 @@ snapshots:
   '@humanwhocodes/retry@0.3.1': {}
 
   '@humanwhocodes/retry@0.4.1': {}
+
+  '@picocss/pico@2.0.6': {}
 
   '@rollup/rollup-android-arm-eabi@4.34.6':
     optional: true
