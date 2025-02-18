@@ -5,6 +5,7 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./node_modules/@picocss/pico/css/pico.jade.min.css" />
+    <link rel="stylesheet" href="src/style.css">
     <title>Tarjetas de embarque</title>
     <style>
       h2 {
@@ -24,7 +25,7 @@
         <header role="group">
           <div class="row">
             <label for="clase">Archivo Clase (JSON):</label>
-            <input type="file" id="clase" accept="application/json" />
+            <input type="file" id="clase" accept="application/json"/>
           </div>
 
           <div class="column">
@@ -45,22 +46,22 @@
           </button>
         </body>
     </form>
-    <article style="height: 50%;">
+    <article>
       <header>
         <h6>XML</h6>
       </header>
       <body>
-        <code id="codeXML" style="width: 100%; opacity: 0">
-          <pre id="outXML" style="min-height: 200px; display: none;"></pre>
+        <code id="codeXML">
+          <pre id="outXML"></pre>
         </code>
       </body>
     </article>
-    <article style="height: 50%;">
+    <article>
       <header>
         <h6>XSLT</h6>
       </header>
       <body>
-        <code id="codeXSLT" style="width: 100%; opacity: 0">
+        <code id="codeXSLT">
           <pre id="outXSLT"></pre>
         </code>
       </body>

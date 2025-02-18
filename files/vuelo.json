@@ -1,0 +1,51 @@
+{
+  "id": "ISSUER_ID.FLIGHT_CLASS_ID",
+  "issuerName": "AirEuropa",
+  "localizedIssuerName": {
+    "defaultValue": {
+      "language": "en-US",
+      "value": "AirEuropa"
+    }
+  },
+  "flightHeader": {
+    "carrier": {
+      "carrierIataCode": "FL",
+      "airlineLogo": {
+        "sourceUri": {
+          "uri": "https://images.unsplash.com/photo-1610642372651-fe6e7bc209ef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=660&h=660"
+        },
+        "contentDescription": {
+          "defaultValue": {
+            "language": "en-US",
+            "value": "LOGO_IMAGE_DESCRIPTION"
+          }
+        }
+      }
+    },
+    "flightNumber": " 123"
+  },
+  "origin": {
+    "airportIataCode": "ALC",
+    "terminal": "1",
+    "gate": "121 A"
+  },
+  "destination": {
+    "airportIataCode": "PMI",
+    "terminal": "DEST_TERMINAL",
+    "gate": "DEST_GATE"
+  },
+  "localScheduledDepartureDateTime": "2023-04-12T11:20",
+  "reviewStatus": "UNDER_REVIEW",
+  "hexBackgroundColor": "#8d3a6f",
+  "heroImage": {
+    "sourceUri": {
+      "uri": "https://images.unsplash.com/photo-1581012771300-224937651c42?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&h=336"
+    },
+    "contentDescription": {
+      "defaultValue": {
+        "language": "en-US",
+        "value": "HERO_IMAGE_DESCRIPTION"
+      }
+    }
+  }
+}

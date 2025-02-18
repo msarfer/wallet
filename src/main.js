@@ -1,19 +1,12 @@
-const parser = new DOMParser()
-const xsltProcessor = new XSLTProcessor()
-const serializer = new XMLSerializer()
+import { downloadFile, readFileAsJSON, readFileAsText } from "./utils/files";
+import { codeXML, codeXSLT, convertButton, inputs, outXML, outXSLT, xmlButton, xsltButton } from "./utils/variables";
+import { createXMLDocument, xmlToString } from "./utils/xml";
+import { formatXML, transform } from "./utils/xslt";
 
 const state = {
   xml: null,
   result: null
 } 
-const outXML = document.getElementById('outXML')
-const outXSLT = document.getElementById('outXSLT')
-const codeXML = document.getElementById('codeXML')
-const codeXSLT = document.getElementById('codeXSLT')
-const inputs = document.querySelectorAll('input')
-const xmlButton = document.getElementById('xml')
-const xsltButton = document.getElementById('xsltBtn')
-const convertButton = document.getElementById('convert')
 
 inputs.forEach(input => input.addEventListener('change', () => {
   state.xml = null
@@ -21,44 +14,11 @@ inputs.forEach(input => input.addEventListener('change', () => {
   codeXML.style.opacity = 0
   codeXSLT.style.opacity = 0
   outXML.style.display = 'none'
+  outXSLT.style.display = 'none'
   const { present } = allFiles()
   convertButton.disabled = !present
   actionButtons(true)
 }));
-
-function transform (xml, stylesheet) {
-  const xslStylesheet = parser.parseFromString(stylesheet, "application/xml");
-  xsltProcessor.importStylesheet(xslStylesheet);
-
-  return xsltProcessor.transformToFragment(xml, document);
-}
-
-function createXMLDocument (data, { namespace, qualifiedName, doctype }) {
-  const impl = document.implementation.createDocument(namespace, qualifiedName, doctype)
-  const jsonToXml = (parent, obj) => {
-    for (const key in obj) {
-      if (Object.hasOwn(obj,key)) {
-        const value = obj[key]
-        if (typeof value === 'object' && value !== null) {
-          const element = impl.createElement(key)
-          jsonToXml(element, value)
-          parent.appendChild(element)
-        } else {
-          const element = impl.createElement(key)
-          element.appendChild(impl.createTextNode(String(value)))
-          parent.appendChild(element)
-        }
-      }
-    }
-  }
-
-  jsonToXml(impl.documentElement, data)
-  return impl
-}
-
-function xmlToString (xml) {
-  return serializer.serializeToString(xml)
-}
 
 
 document.getElementById('convert').addEventListener('click', convert);
@@ -80,11 +40,13 @@ async function convert () {
       
       const data = { ...clase, ...objeto };
       state.xml = createXMLDocument(data, { qualifiedName: 'boardingpass'});
+      state.xml = formatXML(state.xml)
       state.result = transform(state.xml, xslt);
 
       outXML.textContent = xmlToString(state.xml)
       outXSLT.textContent = xmlToString(state.result)
       outXML.style.display = 'block'
+      outXSLT.style.display = 'block'
       codeXML.style.opacity = 1
       codeXSLT.style.opacity = 1
 
@@ -95,41 +57,6 @@ async function convert () {
   } catch (error) {
       alert('Error: ' + error.message);
   }
-}
-
-function readFileAsJSON(file) {
-  return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.onload = () => {
-          try {
-              resolve(JSON.parse(reader.result));
-          } catch {
-              reject(new Error('El archivo JSON no es válido.'));
-          }
-      };
-      reader.onerror = () => reject(new Error('No se pudo leer el archivo.'));
-      reader.readAsText(file);
-  });
-}
-
-function readFileAsText(file) {
-  return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.onload = () => resolve(reader.result);
-      reader.onerror = () => reject(new Error('No se pudo leer el archivo.'));
-      reader.readAsText(file);
-  });
-}
-
-
-function downloadFile(filename, content, type) {
-  const blob = new Blob([content], { type });
-  const link = document.createElement('a');
-  link.href = URL.createObjectURL(blob);
-  link.download = filename;
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
 }
 
 function handleFile(name, data) {
@@ -154,4 +81,4 @@ const allFiles = () => {
       xsltFile
     }
   }
-} 
+}
