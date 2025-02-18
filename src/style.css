@@ -1,3 +1,8 @@
+h1 {
+  text-align: center;
+  margin: 1.5rem 0rem;
+}
+
 code {
   --sb-track-color: var(--pico-background-color);
   --sb-thumb-color: #6BAF8D;
@@ -7,7 +12,10 @@ code {
   opacity: 0;
   overflow: auto;
 }
+pre {
+  overflow: visible;
+}
 
-article {
+details {
   height: 50%;
 }

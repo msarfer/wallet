@@ -1,5 +1,5 @@
 import { downloadFile, readFileAsJSON, readFileAsText } from "./utils/files";
-import { codeXML, codeXSLT, convertButton, inputs, outXML, outXSLT, xmlButton, xsltButton } from "./utils/variables";
+import { codeXML, codeXSLT, convertButton, details, inputs, outXML, outXSLT, xmlButton, xsltButton } from "./utils/variables";
 import { createXMLDocument, xmlToString } from "./utils/xml";
 import { formatXML, transform } from "./utils/xslt";
 
@@ -51,6 +51,7 @@ async function convert () {
       codeXSLT.style.opacity = 1
 
       actionButtons(false)
+      details.forEach(detail => detail.setAttribute('open', true))
 
       xmlButton.addEventListener('click', () => handleFile('boardingpass.xml', state.xml) )
       xsltButton.addEventListener('click', () => handleFile('boardingpass.xml', state.result))
