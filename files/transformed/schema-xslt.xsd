@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:element name="boardingpass">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="localizedIssuerName" type="localizedType" />
+                <xs:element name="flightHeader" type="flightHeaderType" />
+                <xs:element name="origin" type="airportType" />
+                <xs:element name="destination" type="airportType" />
+                <xs:element name="heroImage" type="imageType" />
+                <xs:element name="reservationInfo" type="reservationInfoType" />
+                <xs:element name="boardingAndSeatingInfo" type="boardingSeatingType" />
+                <xs:element name="barcode" type="barcodeType" />
+            </xs:sequence>
+            <xs:attribute name="id" type="xs:string" use="required" />
+            <xs:attribute name="issuerName" type="xs:string" use="required" />
+            <xs:attribute name="localScheduledDepartureDateTime" use="required">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="\d{4}-\d{2}-\d{2}T\d{2}:\d{2}" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+            <xs:attribute name="reviewStatus" use="required">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="UNDER_REVIEW" />
+                        <xs:enumeration value="APPROVED" />
+                        <xs:enumeration value="REJECTED" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+            <xs:attribute name="hexBackgroundColor" use="required">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="#[0-9a-fA-F]{6}" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+            <xs:attribute name="classId" type="xs:string" use="required" />
+            <xs:attribute name="state" use="required">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="ACTIVE" />
+                        <xs:enumeration value="INACTIVE" />
+                        <xs:enumeration value="EXPIRED" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+            <xs:attribute name="passengerName" type="xs:string" use="required" />
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="localizedType">
+        <xs:sequence>
+            <xs:element name="defaultValue">
+                <xs:complexType>
+                    <xs:attribute name="language" type="xs:language" use="required" />
+                    <xs:attribute name="value" type="xs:string" use="required" />
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="flightHeaderType">
+        <xs:sequence>
+            <xs:element name="carrier">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="airlineLogo" type="imageType" />
+                    </xs:sequence>
+                    <xs:attribute name="carrierIataCode" type="xs:string" use="required" />
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute name="flightNumber" type="xs:string" use="required" />
+    </xs:complexType>
+
+    <xs:complexType name="imageType">
+        <xs:sequence>
+            <xs:element name="sourceUri">
+                <xs:complexType>
+                    <xs:attribute name="uri" type="xs:anyURI" use="required" />
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="contentDescription" type="localizedType" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="airportType">
+        <xs:attribute name="airportIataCode" type="xs:string" use="required" />
+        <xs:attribute name="terminal" type="xs:string" use="required" />
+        <xs:attribute name="gate" type="xs:string" use="required" />
+    </xs:complexType>
+
+    <xs:complexType name="reservationInfoType">
+        <xs:attribute name="confirmationCode" type="xs:string" use="required" />
+        <xs:attribute name="eticketNumber" type="xs:string" use="required" />
+    </xs:complexType>
+
+    <xs:complexType name="boardingSeatingType">
+        <xs:attribute name="boardingGroup" type="xs:string" use="required" />
+        <xs:attribute name="seatNumber" type="xs:string" use="required" />
+        <xs:attribute name="seatClass" type="xs:string" use="required" />
+    </xs:complexType>
+
+    <xs:complexType name="barcodeType">
+        <xs:attribute name="type" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="QR_CODE" />
+                    <xs:enumeration value="BARCODE" />
+                    <xs:enumeration value="AZTEC" />
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="value" type="xs:string" use="required" />
+        <xs:attribute name="alternateText" type="xs:string" use="required" />
+    </xs:complexType>
+
+</xs:schema>

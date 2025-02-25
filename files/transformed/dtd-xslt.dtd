@@ -1,0 +1,63 @@
+
+<!ELEMENT boardingpass (localizedIssuerName, flightHeader, origin, destination, heroImage, reservationInfo, boardingAndSeatingInfo, barcode)>
+<!ATTLIST boardingpass
+          id CDATA #REQUIRED
+          issuerName CDATA #REQUIRED
+          localScheduledDepartureDateTime CDATA #REQUIRED
+          reviewStatus (UNDER_REVIEW|APPROVED|REJECTED) #REQUIRED
+          hexBackgroundColor CDATA #REQUIRED
+          classId CDATA #REQUIRED
+          state (ACTIVE|INACTIVE|EXPIRED) #REQUIRED
+          passengerName CDATA #REQUIRED>
+
+<!ELEMENT localizedIssuerName (defaultValue)>
+<!ELEMENT defaultValue EMPTY>
+<!ATTLIST defaultValue
+          language CDATA #REQUIRED
+          value CDATA #REQUIRED>
+
+<!ELEMENT flightHeader (carrier)>
+<!ATTLIST flightHeader
+          flightNumber CDATA #REQUIRED>
+
+<!ELEMENT carrier (airlineLogo)>
+<!ATTLIST carrier
+          carrierIataCode CDATA #REQUIRED>
+
+<!ELEMENT airlineLogo (sourceUri, contentDescription)>
+<!ELEMENT sourceUri EMPTY>
+<!ATTLIST sourceUri
+          uri CDATA #REQUIRED>
+
+<!ELEMENT contentDescription (defaultValue)>
+
+<!ELEMENT origin EMPTY>
+<!ATTLIST origin
+          airportIataCode CDATA #REQUIRED
+          terminal CDATA #REQUIRED
+          gate CDATA #REQUIRED>
+
+<!ELEMENT destination EMPTY>
+<!ATTLIST destination
+          airportIataCode CDATA #REQUIRED
+          terminal CDATA #REQUIRED
+          gate CDATA #REQUIRED>
+
+<!ELEMENT heroImage (sourceUri, contentDescription)>
+
+<!ELEMENT reservationInfo EMPTY>
+<!ATTLIST reservationInfo
+          confirmationCode CDATA #REQUIRED
+          eticketNumber CDATA #REQUIRED>
+
+<!ELEMENT boardingAndSeatingInfo EMPTY>
+<!ATTLIST boardingAndSeatingInfo
+          boardingGroup CDATA #REQUIRED
+          seatNumber CDATA #REQUIRED
+          seatClass CDATA #REQUIRED>
+
+<!ELEMENT barcode EMPTY>
+<!ATTLIST barcode
+          type (QR_CODE|BARCODE|AZTEC) #REQUIRED
+          value CDATA #REQUIRED
+          alternateText CDATA #REQUIRED>

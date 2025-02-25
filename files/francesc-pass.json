@@ -1,0 +1,20 @@
+{
+  "id": "ISSUER_ID.OBJECT_ID",
+  "classId": "ISSUER_ID.FLIGHT_CLASS_ID",
+  "state": "ACTIVE",
+  "passengerName": "Francesc Obrador",
+  "reservationInfo": {
+    "confirmationCode": "CONFIRMATION_CODE",
+    "eticketNumber": "E-TICKET_NUMBER"
+  },
+  "boardingAndSeatingInfo": {
+    "boardingGroup": "B",
+    "seatNumber": "45A",
+    "seatClass": "Economía"
+  },
+  "barcode": {
+    "type": "QR_CODE",
+    "value": "BARCODE_VALUE",
+    "alternateText": "qr alternativo"
+  }
+}

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="dtd-xslt.dtd" type="application/xml-dtd"?>
+<boardingpass id="ISSUER_ID.OBJECT_ID" issuerName="AirEuropa" localScheduledDepartureDateTime="2023-04-12T11:20" reviewStatus="UNDER_REVIEW" hexBackgroundColor="#8d3a6f" classId="ISSUER_ID.FLIGHT_CLASS_ID" state="ACTIVE" passengerName="Francesc Obrador">
+  <localizedIssuerName>
+    <defaultValue language="en-US" value="AirEuropa"/>
+  </localizedIssuerName>
+  <flightHeader flightNumber=" 123">
+    <carrier carrierIataCode="FL">
+      <airlineLogo>
+        <sourceUri uri="https://images.unsplash.com/photo-1610642372651-fe6e7bc209ef?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=660&amp;h=660"/>
+        <contentDescription>
+          <defaultValue language="en-US" value="LOGO_IMAGE_DESCRIPTION"/>
+        </contentDescription>
+      </airlineLogo>
+    </carrier>
+  </flightHeader>
+  <origin airportIataCode="ALC" terminal="1" gate="121 A"/>
+  <destination airportIataCode="PMI" terminal="DEST_TERMINAL" gate="DEST_GATE"/>
+  <heroImage>
+    <sourceUri uri="https://images.unsplash.com/photo-1581012771300-224937651c42?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1032&amp;h=336"/>
+    <contentDescription>
+      <defaultValue language="en-US" value="HERO_IMAGE_DESCRIPTION"/>
+    </contentDescription>
+  </heroImage>
+  <reservationInfo confirmationCode="CONFIRMATION_CODE" eticketNumber="E-TICKET_NUMBER"/>
+  <boardingAndSeatingInfo boardingGroup="B" seatNumber="45A" seatClass="Economía"/>
+  <barcode type="QR_CODE" value="BARCODE_VALUE" alternateText="qr alternativo"/>
+</boardingpass>

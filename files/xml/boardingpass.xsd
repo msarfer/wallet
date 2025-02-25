@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="boardingpass">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:string"/>
+                <xs:element name="issuerName" type="xs:string"/>
+                <xs:element name="localizedIssuerName">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="defaultValue">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="language" type="xs:string"/>
+                                        <xs:element name="value" type="xs:string"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="flightHeader">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="carrier">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="carrierIataCode" type="xs:string"/>
+                                        <xs:element name="airlineLogo">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="sourceUri">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="uri" type="xs:string"/>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                    <xs:element name="contentDescription">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="defaultValue">
+                                                                    <xs:complexType>
+                                                                        <xs:sequence>
+                                                                            <xs:element name="language" type="xs:string"/>
+                                                                            <xs:element name="value" type="xs:string"/>
+                                                                        </xs:sequence>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="flightNumber" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="origin">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="airportIataCode" type="xs:string"/>
+                            <xs:element name="terminal" type="xs:string"/>
+                            <xs:element name="gate" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="destination">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="airportIataCode" type="xs:string"/>
+                            <xs:element name="terminal" type="xs:string"/>
+                            <xs:element name="gate" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="localScheduledDepartureDateTime" type="xs:string"/>
+                <xs:element name="reviewStatus" type="xs:string"/>
+                <xs:element name="hexBackgroundColor" type="xs:string"/>
+                <xs:element name="heroImage">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="sourceUri">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="uri" type="xs:string"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="contentDescription">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="defaultValue">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="language" type="xs:string"/>
+                                                    <xs:element name="value" type="xs:string"/>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="classId" type="xs:string"/>
+                <xs:element name="state" type="xs:string"/>
+                <xs:element name="passengerName" type="xs:string"/>
+                <xs:element name="reservationInfo">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="confirmationCode" type="xs:string"/>
+                            <xs:element name="eticketNumber" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="boardingAndSeatingInfo">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="boardingGroup" type="xs:string"/>
+                            <xs:element name="seatNumber" type="xs:string"/>
+                            <xs:element name="seatClass" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="barcode">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="type" type="xs:string"/>
+                            <xs:element name="value" type="xs:string"/>
+                            <xs:element name="alternateText" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

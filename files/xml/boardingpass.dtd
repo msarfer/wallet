@@ -1,0 +1,48 @@
+<!ELEMENT boardingpass (id, issuerName, localizedIssuerName, flightHeader, origin, destination, 
+localScheduledDepartureDateTime, reviewStatus, hexBackgroundColor, heroImage, classId, state, passengerName, 
+reservationInfo, boardingAndSeatingInfo, barcode)>
+
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT issuerName (#PCDATA)>
+<!ELEMENT localizedIssuerName (defaultValue)>
+<!ELEMENT defaultValue (language, value)>
+<!ELEMENT language (#PCDATA)>
+<!ELEMENT value (#PCDATA)>
+
+<!ELEMENT flightHeader (carrier, flightNumber)>
+<!ELEMENT carrier (carrierIataCode, airlineLogo)>
+<!ELEMENT carrierIataCode (#PCDATA)>
+<!ELEMENT airlineLogo (sourceUri, contentDescription)>
+<!ELEMENT sourceUri (uri)>
+<!ELEMENT uri (#PCDATA)>
+<!ELEMENT contentDescription (defaultValue)>
+
+<!ELEMENT flightNumber (#PCDATA)>
+<!ELEMENT origin (airportIataCode, terminal, gate)>
+<!ELEMENT destination (airportIataCode, terminal, gate)>
+<!ELEMENT airportIataCode (#PCDATA)>
+<!ELEMENT terminal (#PCDATA)>
+<!ELEMENT gate (#PCDATA)>
+
+<!ELEMENT localScheduledDepartureDateTime (#PCDATA)>
+<!ELEMENT reviewStatus (#PCDATA)>
+<!ELEMENT hexBackgroundColor (#PCDATA)>
+
+<!ELEMENT heroImage (sourceUri, contentDescription)>
+
+<!ELEMENT classId (#PCDATA)>
+<!ELEMENT state (#PCDATA)>
+<!ELEMENT passengerName (#PCDATA)>
+
+<!ELEMENT reservationInfo (confirmationCode, eticketNumber)>
+<!ELEMENT confirmationCode (#PCDATA)>
+<!ELEMENT eticketNumber (#PCDATA)>
+
+<!ELEMENT boardingAndSeatingInfo (boardingGroup, seatNumber, seatClass)>
+<!ELEMENT boardingGroup (#PCDATA)>
+<!ELEMENT seatNumber (#PCDATA)>
+<!ELEMENT seatClass (#PCDATA)>
+
+<!ELEMENT barcode (type, value, alternateText)>
+<!ELEMENT type (#PCDATA)>
+<!ELEMENT alternateText (#PCDATA)>

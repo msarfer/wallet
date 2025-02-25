@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE boardingpass [
+  <!ELEMENT boardingpass (id, issuerName, localizedIssuerName, flightHeader, origin, destination, 
+localScheduledDepartureDateTime, reviewStatus, hexBackgroundColor, heroImage, classId, state, passengerName, 
+reservationInfo, boardingAndSeatingInfo, barcode)>
+
+  <!ELEMENT id (#PCDATA)>
+  <!ELEMENT issuerName (#PCDATA)>
+  <!ELEMENT localizedIssuerName (defaultValue)>
+  <!ELEMENT defaultValue (language, value)>
+  <!ELEMENT language (#PCDATA)>
+  <!ELEMENT value (#PCDATA)>
+
+  <!ELEMENT flightHeader (carrier, flightNumber)>
+  <!ELEMENT carrier (carrierIataCode, airlineLogo)>
+  <!ELEMENT carrierIataCode (#PCDATA)>
+  <!ELEMENT airlineLogo (sourceUri, contentDescription)>
+  <!ELEMENT sourceUri (uri)>
+  <!ELEMENT uri (#PCDATA)>
+  <!ELEMENT contentDescription (defaultValue)>
+
+  <!ELEMENT flightNumber (#PCDATA)>
+  <!ELEMENT origin (airportIataCode, terminal, gate)>
+  <!ELEMENT destination (airportIataCode, terminal, gate)>
+  <!ELEMENT airportIataCode (#PCDATA)>
+  <!ELEMENT terminal (#PCDATA)>
+  <!ELEMENT gate (#PCDATA)>
+
+  <!ELEMENT localScheduledDepartureDateTime (#PCDATA)>
+  <!ELEMENT reviewStatus (#PCDATA)>
+  <!ELEMENT hexBackgroundColor (#PCDATA)>
+
+  <!ELEMENT heroImage (sourceUri, contentDescription)>
+
+  <!ELEMENT classId (#PCDATA)>
+  <!ELEMENT state (#PCDATA)>
+  <!ELEMENT passengerName (#PCDATA)>
+
+  <!ELEMENT reservationInfo (confirmationCode, eticketNumber)>
+  <!ELEMENT confirmationCode (#PCDATA)>
+  <!ELEMENT eticketNumber (#PCDATA)>
+
+  <!ELEMENT boardingAndSeatingInfo (boardingGroup, seatNumber, seatClass)>
+  <!ELEMENT boardingGroup (#PCDATA)>
+  <!ELEMENT seatNumber (#PCDATA)>
+  <!ELEMENT seatClass (#PCDATA)>
+
+  <!ELEMENT barcode (type, value, alternateText)>
+  <!ELEMENT type (#PCDATA)>
+  <!ELEMENT alternateText (#PCDATA)>
+]>
+<boardingpass>
+  <id>ISSUER_ID.OBJECT_ID</id>
+  <issuerName>[SOLO PARA PRUEBA] Aerolínea Heráldica</issuerName>
+  <localizedIssuerName>
+    <defaultValue>
+      <language>en-US</language>
+      <value>[SOLO PARA PRUEBA] Aerolínea Heráldica</value>
+    </defaultValue>
+  </localizedIssuerName>
+  <flightHeader>
+    <carrier>
+      <carrierIataCode>FL</carrierIataCode>
+      <airlineLogo>
+        <sourceUri>
+          <uri>
+            https://images.unsplash.com/photo-1610642372651-fe6e7bc209ef?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=660&amp;h=660</uri>
+        </sourceUri>
+        <contentDescription>
+          <defaultValue>
+            <language>en-US</language>
+            <value>LOGO_IMAGE_DESCRIPTION</value>
+          </defaultValue>
+        </contentDescription>
+      </airlineLogo>
+    </carrier>
+    <flightNumber> 123</flightNumber>
+  </flightHeader>
+  <origin>
+    <airportIataCode>LAX</airportIataCode>
+    <terminal>1</terminal>
+    <gate>121 A</gate>
+  </origin>
+  <destination>
+    <airportIataCode>SFO</airportIataCode>
+    <terminal>DEST_TERMINAL</terminal>
+    <gate>DEST_GATE</gate>
+  </destination>
+  <localScheduledDepartureDateTime>2023-04-12T11:20</localScheduledDepartureDateTime>
+  <reviewStatus>UNDER_REVIEW</reviewStatus>
+  <hexBackgroundColor>#8d3a6f</hexBackgroundColor>
+  <heroImage>
+    <sourceUri>
+      <uri>
+        https://images.unsplash.com/photo-1581012771300-224937651c42?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1032&amp;h=336</uri>
+    </sourceUri>
+    <contentDescription>
+      <defaultValue>
+        <language>en-US</language>
+        <value>HERO_IMAGE_DESCRIPTION</value>
+      </defaultValue>
+    </contentDescription>
+  </heroImage>
+  <classId>ISSUER_ID.FLIGHT_CLASS_ID</classId>
+  <state>ACTIVE</state>
+  <passengerName>Sr. Marco Sarrio</passengerName>
+  <reservationInfo>
+    <confirmationCode>CONFIRMATION_CODE</confirmationCode>
+    <eticketNumber>E-TICKET_NUMBER</eticketNumber>
+  </reservationInfo>
+  <boardingAndSeatingInfo>
+    <boardingGroup>A</boardingGroup>
+    <seatNumber>24A</seatNumber>
+    <seatClass>Bussines</seatClass>
+  </boardingAndSeatingInfo>
+  <barcode>
+    <type>QR_CODE</type>
+    <value>BARCODE_VALUE</value>
+    <alternateText></alternateText>
+  </barcode>
+</boardingpass>
