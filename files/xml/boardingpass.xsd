@@ -3,7 +3,7 @@
     <xs:element name="boardingpass">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="id" type="xs:string"/>
+                <xs:element name="id" type="xs:ID"/>
                 <xs:element name="issuerName" type="xs:string"/>
                 <xs:element name="localizedIssuerName">
                     <xs:complexType>
@@ -122,7 +122,7 @@
                 <xs:element name="boardingAndSeatingInfo">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="boardingGroup" type="xs:string"/>
+                            <xs:element name="boardingGroup" type="xs:NMTOKEN"/>
                             <xs:element name="seatNumber" type="xs:string"/>
                             <xs:element name="seatClass" type="xs:string"/>
                         </xs:sequence>
@@ -133,7 +133,7 @@
                         <xs:sequence>
                             <xs:element name="type" type="xs:string"/>
                             <xs:element name="value" type="xs:string"/>
-                            <xs:element name="alternateText" type="xs:string"/>
+                            <xs:element name="alternateText" type="xs:string" minOccurs="0"/>
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
