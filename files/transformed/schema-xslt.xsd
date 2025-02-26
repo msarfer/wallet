@@ -109,9 +109,19 @@
         <xs:attribute name="type" use="required">
             <xs:simpleType>
                 <xs:restriction base="xs:string">
-                    <xs:enumeration value="QR_CODE" />
-                    <xs:enumeration value="BARCODE" />
+                    <xs:enumeration value="BARCODE_TYPE_UNSPECIFIED" />
                     <xs:enumeration value="AZTEC" />
+                    <xs:enumeration value="CODE_39" />
+                    <xs:enumeration value="CODE_128" />
+                    <xs:enumeration value="CODABAR" />
+                    <xs:enumeration value="DATA_MATRIX" />
+                    <xs:enumeration value="EAN_8" />
+                    <xs:enumeration value="EAN_13" />
+                    <xs:enumeration value="ITF_14" />
+                    <xs:enumeration value="PDF_417" />
+                    <xs:enumeration value="QR_CODE" />
+                    <xs:enumeration value="UPC_A" />
+                    <xs:enumeration value="TEXT_ONLY" />
                 </xs:restriction>
             </xs:simpleType>
         </xs:attribute>
